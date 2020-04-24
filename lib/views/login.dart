@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:happjsafe/views/app_safe.dart';
 
 
 ///
@@ -192,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                      onPressed:_setOtp,
+                      onPressed:_onLogin,
                                             child: Text (!isValid? "ENTER PHONE NUMBER": "CONTINUE", style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.white,
@@ -217,7 +218,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         }
 void _onLogin() {
-                         
+  Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) => new MainScreen()));         
 }
                                         
 void _setOtp() {

@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        children: <Widget>[
+        children: <Widget>[ 
           UserCodePage(),
           HistoryPage(),
           ScannerPage(),
