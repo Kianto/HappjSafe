@@ -45,6 +45,7 @@ class _NotificationPageState extends State<NotificationPage> {
       title: document['title'],
       dateTime: document['time'].toDate(),
       content: document['content'],
+      isDanger: document['isDanger'],
     );
   }
 }

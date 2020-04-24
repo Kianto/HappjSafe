@@ -23,7 +23,7 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   Widget _buildBody() {
-    return Text("History");
+    return Text("History")
   }
 
 }
