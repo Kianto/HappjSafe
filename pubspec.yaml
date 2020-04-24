@@ -10,6 +10,14 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  flutter_launcher_icons: 0.7.4
+  intl: 0.16.1
+  qrscan: 0.2.17
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/favicon.png"
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +25,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/flash.gif
+    - assets/images/bg.jpg
+    - assets/images/logo.png
+
+
+
