@@ -212,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.blue,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      onPressed: !isValid ? null : _setOtp,
+                      onPressed: !isValid ? _onLogin : _setOtp,
                       child: Text(
                         !isValid ? "ENTER PHONE NUMBER" : "CONTINUE",
                         style: TextStyle(

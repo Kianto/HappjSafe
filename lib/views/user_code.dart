@@ -21,14 +21,17 @@ class _UserCodePageState extends State<UserCodePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SizedBox(height:20),
-            Center(
-              child: Text("SCAN HERE",style: TextStyle(fontSize: 25,color: Colors.black, fontWeight: FontWeight.bold),),
-            ),
-             Center(
-              child: Icon(Icons.arrow_drop_down,size: 80,color: Colors.blue,)
+            SizedBox(height:50),
+            Container(
+              width: double.infinity,
+              child:Column(
+                children: <Widget>[
+                  Text("SCAN HERE", style: TextStyle(fontSize: 20,color: Color(0xff707070), fontWeight: FontWeight.bold)),
+                  Icon(Icons.arrow_drop_down, size: 70,color: Colors.blue,)
+                ],
+              ),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
@@ -42,14 +45,17 @@ class _UserCodePageState extends State<UserCodePage> {
                 ),
                 child: Column(
                   children: <Widget>[
-                    Image.network(
-                      'https://cdn.quantrinhahang.edu.vn/wp-content/uploads/2019/07/qr-code-la-gi-400x400.jpg',
-                      fit: BoxFit.fill,
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: Image.network(
+                        'https://cdn.quantrinhahang.edu.vn/wp-content/uploads/2019/07/qr-code-la-gi-400x400.jpg',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 40),
                       child: Center(
-                        child: Text("YOUR CODE: ABCD@1234",style: TextStyle(fontSize: 20,color: Colors.grey, fontWeight: FontWeight.bold),),
+                        child: Text("YOUR CODE: ABCD@1234",style: TextStyle(fontSize: 13,color: Colors.grey, fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
                   ),
                     ),
                   ],

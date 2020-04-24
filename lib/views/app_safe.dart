@@ -97,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Color _getBottomIconColor(int index) {
     return _page == index
-        ? Theme.of(context).backgroundColor
+        ? Colors.white
         : Theme.of(context).textTheme.caption.color;
   }
 
