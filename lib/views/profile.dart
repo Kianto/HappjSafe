@@ -44,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(50)
                     ),
                     child: Column(
                       children: <Widget>[

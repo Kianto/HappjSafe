@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                    decoration: BoxDecoration(
                      color: Colors.white,
                      border: Border.all(width: 1,color: Colors.grey),
-                     borderRadius: BorderRadius.circular(20)
+                     borderRadius: BorderRadius.circular(20),
                    ),
                    child: Column(
                      children: <Widget>[

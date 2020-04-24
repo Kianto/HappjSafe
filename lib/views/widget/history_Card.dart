@@ -23,6 +23,9 @@ class history_card extends StatelessWidget {
          border: Border.all(width: 1,color: Colors.grey),
          borderRadius: BorderRadius.circular(20),
          color:type == 0? Colors.white:Colors.red,
+          boxShadow: [
+                BoxShadow(color: Colors.black45, blurRadius: 6)
+              ]
        ),
        child: Column(
          children: <Widget>[

@@ -38,7 +38,10 @@ class _ServiceCodePageState extends State<ServiceCodePage> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(width:1,color:Colors.grey[300])
+                  border: Border.all(width:1,color:Colors.grey[300]),
+                  boxShadow: [
+                BoxShadow(color: Colors.black45, blurRadius: 6)
+                  ]
                 ),
                 child: Column(
                   children: <Widget>[
