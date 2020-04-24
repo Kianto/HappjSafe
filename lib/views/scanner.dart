@@ -32,13 +32,19 @@ class _ScannerPageState extends State<ScannerPage> {
         children: <Widget>[
           Center(child: Text(scanResult, style: Theme.of(context).textTheme.subtitle,)),
           Divider(),
-          Center(
-            child: RaisedButton(
-              child: Text("Continue"),
-              onPressed: _scan,
-            ),
-          )
-
+          Container(
+           margin: EdgeInsets.all(50),
+              width: double.infinity,
+              height: 50,
+                child: RaisedButton(
+                child:Text("Continue",style: TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold)) ,
+                 onPressed:_scan ,
+                 color: Colors.blue,
+                 shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                   ),
+                ),
         ]
     );
   }
