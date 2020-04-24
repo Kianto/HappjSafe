@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:happjsafe/models/user.dart';
+import 'package:happjsafe/views/app_travel.dart';
 
 ///
 /// Show user info
@@ -39,6 +40,14 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
+
+      floatingActionButton: widget.loggedUser.isInspector
+          ? FloatingActionButton(
+            child: Icon(Icons.send),
+            onPressed: _onSwitchInspector,
+            heroTag: null,
+          )
+          : null,
     );
   }
 
@@ -187,4 +196,13 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  void _onSwitchInspector() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          return MainTravelScreen();
+        },
+      ),
+    );
+  }
 }

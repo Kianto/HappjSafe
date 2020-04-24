@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:happjsafe/controllers/user_controller.dart';
+import 'package:happjsafe/models/inspector.dart';
 import 'package:happjsafe/resources/constant.dart';
 import 'package:happjsafe/views/profile.dart';
 import 'package:happjsafe/views/scanner.dart';
@@ -36,15 +39,33 @@ class _MainTravelScreenState extends State<MainTravelScreen> {
         title: Text(Constants.appName_TRAVEL),
       ),
 
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        children: <Widget>[
-          ServiceCodePage(),
-          ScannerPage(),
-          ProfilePage(),
-        ],
+      body: StreamBuilder<DocumentSnapshot>(
+        stream: UserController.getUserStream("rqja0ZD4YsXS4b2MHdiRmqIDetH3"),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[CircularProgressIndicator()],
+                  )
+              );
+            }
+
+            Inspector loggedUser = Inspector.fromJson(snapshot.data.data);
+            loggedUser.id = snapshot.data.documentID;
+
+          return PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            children: <Widget>[
+              ServiceCodePage(inspector: loggedUser),
+              ScannerPage(),
+              ProfilePage(loggedUser: loggedUser),
+            ],
+          );
+        }
       ),
       floatingActionButton:  new FloatingActionButton(
         child: Icon(Icons.camera),

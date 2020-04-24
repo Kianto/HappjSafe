@@ -24,20 +24,7 @@ class Inspector extends User {
           history: history, warnings: warnings,
       );
 
-  Inspector.fromJson(Map<String, dynamic> json) {
-    this.id = json['id'];
-    this.phone = json['phone'];
-    this.name = json['name'];
-    this.qrCode = json['qrCode'];
-    this.isGood = json['isGood'];
-    this.isInspector = json['isInspector'];
-
-    List<Map<String, dynamic>> hisMap = json['history'];
-    this.history = hisMap.map((map) => Journey.fromJson(map)).toList();
-
-    List<Map<String, dynamic>> temp = json['history'];
-    this.history = temp.map((map) => Journey.fromJson(map)).toList();
-
+  Inspector.fromJson(Map<String, dynamic> json) : super.fromJson(json) {
     this.inspectingServiceId = json['inspectingServiceId'];
   }
 

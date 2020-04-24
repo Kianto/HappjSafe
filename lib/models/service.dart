@@ -29,7 +29,7 @@ class Service extends Entity {
     this.toPlace = json['toPlace'];
     this.fromTime = (json['fromTime'] as Timestamp).toDate();
     this.toTime = (json['toTime'] as Timestamp).toDate();
-    this.passengerIds = json['passengerIds'];
+    this.passengerIds = (json['passengerIds'] as List).map((item) => item.toString()).toList();;
   }
 
   String provider;
