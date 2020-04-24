@@ -1,13 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 import 'entity.dart';
 
 ///
-/// class Route extends Entity
+/// class Journey extends Entity
 ///
 
-class Route extends Entity {
-  Route({String id,
+class Journey extends Entity {
+  Journey({String id,
     this.serviceId,
     this.fromPlace,
     this.toPlace,
@@ -18,13 +19,13 @@ class Route extends Entity {
       : assert(null != serviceId),
         super(id: id);
 
-  Route.fromJson(Map<String, dynamic> json) {
+  Journey.fromJson(Map json) {
     this.id = json['id'];
     this.serviceId = json['serviceId'];
     this.fromPlace = json['fromPlace'];
     this.toPlace = json['toPlace'];
-    this.fromTime = json['fromTime'];
-    this.toTime = json['toTime'];
+    this.fromTime = (json['fromTime'] as Timestamp).toDate();
+    this.toTime = (json['toTime'] as Timestamp).toDate();
     this.isGood = json['isGood'];
   }
 

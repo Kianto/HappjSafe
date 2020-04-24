@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 import 'entity.dart';
@@ -16,11 +17,11 @@ class News extends Entity {
   })
       : super(id: id);
 
-  News.fromJson(Map<String, dynamic> json) {
+  News.fromJson(Map json) {
     this.id = json['id'];
     this.title = json['title'];
     this.content = json['content'];
-    this.time = json['time'];
+    this.time = (json['time'] as Timestamp).toDate();
     this.isDanger = json['isDanger'];
   }
 

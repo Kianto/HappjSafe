@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 import 'entity.dart';
@@ -26,8 +27,8 @@ class Service extends Entity {
     this.qrCode = json['qrCode'];
     this.fromPlace = json['fromPlace'];
     this.toPlace = json['toPlace'];
-    this.fromTime = json['fromTime'];
-    this.toTime = json['toTime'];
+    this.fromTime = (json['fromTime'] as Timestamp).toDate();
+    this.toTime = (json['toTime'] as Timestamp).toDate();
     this.passengerIds = json['passengerIds'];
   }
 

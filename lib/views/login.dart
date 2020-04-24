@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:happjsafe/views/app_safe.dart';
-import 'package:happjsafe/views/widget/dialog/loading_dialog.dart';
+import 'package:happjsafe/views/widgets/dialog/loading_dialog.dart';
 
 ///
 /// Login form - authenticate user by phone

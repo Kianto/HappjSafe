@@ -1,5 +1,5 @@
 import 'package:happjsafe/models/news.dart';
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 import 'package:happjsafe/models/service.dart';
 import 'package:happjsafe/models/user.dart';
 
@@ -7,31 +7,31 @@ import 'package:happjsafe/models/user.dart';
 /// Contain example data
 ///
 
-abstract class RouteCollector {
-  static List<Route> getCollection() {
+abstract class JourneyCollector {
+  static List<Journey> getCollection() {
     return [
-      Route(id: "11", serviceId: "Over Sea Ship",
+      Journey(id: "11", serviceId: "Over Sea Ship",
           fromPlace: "Hoang Sa",
           toPlace: "Truong Sa",
           fromTime: DateTime.now().subtract(Duration(days: 5)),
           toTime: DateTime.now().subtract(Duration(days: 5)).add(Duration(hours: 21)),
           isGood: true,
       ),
-      Route(id: "01", serviceId: "A Train",
+      Journey(id: "01", serviceId: "A Train",
         fromPlace: "HCM",
         toPlace: "HN",
         fromTime: DateTime.now().subtract(Duration(days: 2)),
         toTime: DateTime.now().subtract(Duration(days: 2)).add(Duration(hours: 5)),
           isGood: false,
       ),
-      Route(id: "02", serviceId: "ALVN",
+      Journey(id: "02", serviceId: "ALVN",
           fromPlace: "DN",
           toPlace: "Hue",
           fromTime: DateTime.now().subtract(Duration(days: 1)),
           toTime: DateTime.now().subtract(Duration(days: 1)).add(Duration(hours: 3)),
         isGood: true,
       ),
-      Route(id: "01", serviceId: "ALVN",
+      Journey(id: "01", serviceId: "ALVN",
           fromPlace: "TS",
           toPlace: "HS",
           fromTime: DateTime.now(),
@@ -102,7 +102,7 @@ abstract class UserCollector {
       name: "Happj Man",
       isGood: true,
       isInspector: false,
-      history: RouteCollector.getCollection(),
+      history: JourneyCollector.getCollection(),
       warnings: [News(id: "000pp",
         title: "Warning",
         content: "The trip from HN to HCM you have joined in April 20 had reported an infected case!",

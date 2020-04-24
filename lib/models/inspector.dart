@@ -1,4 +1,4 @@
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 
 import 'news.dart';
 import 'user.dart';
@@ -14,7 +14,7 @@ class Inspector extends User {
     String name,
     bool isGood,
     bool isInspector,
-    List<Route> history,
+    List<Journey> history,
     List<News> warnings,
     this.inspectingServiceId,
   })
@@ -31,10 +31,12 @@ class Inspector extends User {
     this.qrCode = json['qrCode'];
     this.isGood = json['isGood'];
     this.isInspector = json['isInspector'];
-    this.warnings = json['warnings'];
+
+    List<Map<String, dynamic>> hisMap = json['history'];
+    this.history = hisMap.map((map) => Journey.fromJson(map)).toList();
 
     List<Map<String, dynamic>> temp = json['history'];
-    this.history = temp.map((map) => Route.fromJson(map)).toList();
+    this.history = temp.map((map) => Journey.fromJson(map)).toList();
 
     this.inspectingServiceId = json['inspectingServiceId'];
   }
