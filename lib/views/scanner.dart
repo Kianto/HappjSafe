@@ -8,13 +8,17 @@ import 'package:qrscan/qrscan.dart' as scanner;
 ///
 
 class ScannerPage extends StatefulWidget {
+  ScannerPage({Key key, @required this.userId}) : super(key: key);
+
+  final String userId;
 
   @override
   State<StatefulWidget> createState() => _ScannerPageState();
-
 }
 
 class _ScannerPageState extends State<ScannerPage> {
+  // TODO: GET service id after scan and with widget.userId to update
+  // TODO: update data for both service passengers list and user history
   String scanResult = "...";
 
   @override

@@ -53,7 +53,7 @@ class _MainScreenState extends State<MainScreen> {
             children: <Widget>[
               UserCodePage(loggedUser: loggedUser),
               HistoryPage(loggedUser: loggedUser),
-              ScannerPage(),
+              ScannerPage(userId: loggedUser.id),
               NotificationPage(loggedUser: loggedUser),
               ProfilePage(loggedUser: loggedUser),
             ],

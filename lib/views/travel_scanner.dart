@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ScanTravelPage extends StatefulWidget {
+class TravelScannerPage extends StatefulWidget {
+  TravelScannerPage({Key key, @required this.serviceId}) : super(key: key);
+
+  final String serviceId;
+
   @override
-  _ScanTravelPageState createState() => _ScanTravelPageState();
+  _TravelScannerPageState createState() => _TravelScannerPageState();
 }
 
-class _ScanTravelPageState extends State<ScanTravelPage> {
+class _TravelScannerPageState extends State<TravelScannerPage> {
+
+  // TODO: GET user id after scan and with widget.serviceId to update
+  // TODO: update data for both service passengers list and user history
+  String scannedId;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

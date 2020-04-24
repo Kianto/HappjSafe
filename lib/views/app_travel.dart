@@ -4,7 +4,7 @@ import 'package:happjsafe/controllers/user_controller.dart';
 import 'package:happjsafe/models/inspector.dart';
 import 'package:happjsafe/resources/constant.dart';
 import 'package:happjsafe/views/profile.dart';
-import 'package:happjsafe/views/scanner.dart';
+import 'package:happjsafe/views/travel_scanner.dart';
 import 'package:happjsafe/views/service_code.dart';
 
 class TravelProviderApp extends StatelessWidget {
@@ -61,7 +61,7 @@ class _MainTravelScreenState extends State<MainTravelScreen> {
             onPageChanged: _onPageChanged,
             children: <Widget>[
               ServiceCodePage(inspector: loggedUser),
-              ScannerPage(),
+              TravelScannerPage(serviceId: loggedUser.inspectingServiceId),
               ProfilePage(loggedUser: loggedUser),
             ],
           );
