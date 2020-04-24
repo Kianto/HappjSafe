@@ -1,7 +1,10 @@
 import 'entity.dart';
+import 'news.dart';
+import 'route.dart';
 
 ///
 /// class User extends Entity
+/// *** Will be created as a collection in DB
 ///
 
 class User extends Entity {
@@ -10,7 +13,9 @@ class User extends Entity {
     this.qrCode,
     this.name,
     this.isGood,
-    this.isInspector
+    this.isInspector,
+    this.history,
+    this.warnings
   })
       : assert(null != phone),
         super(id: id);
@@ -22,6 +27,12 @@ class User extends Entity {
     this.qrCode = json['qrCode'];
     this.isGood = json['isGood'];
     this.isInspector = json['isInspector'];
+
+    List<Map<String, dynamic>> hisMap = json['history'];
+    this.history = hisMap.map((map) => Route.fromJson(map)).toList();
+
+    List<Map<String, dynamic>> warnMap = json['warnings'];
+    this.warnings = warnMap.map((map) => News.fromJson(map)).toList();
   }
 
   String phone; // +xx yyy yyy yyy
@@ -29,6 +40,8 @@ class User extends Entity {
   String name;
   bool isGood;
   bool isInspector;
+  List<Route> history;
+  List<News> warnings;
 
   String get contact {
     String res = "";
@@ -46,6 +59,8 @@ class User extends Entity {
     data['name'] = this.name;
     data['isGood'] = this.isGood;
     data['isInspector'] = this.isInspector;
+    data['history'] = this.history.map((route) => route.toJson()).toList();
+    data['warnings'] = this.warnings.map((warn) => warn.toJson()).toList();
     return data;
   }
 
