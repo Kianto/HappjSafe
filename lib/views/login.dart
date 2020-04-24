@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:happjsafe/views/app_safe.dart';
+import 'package:happjsafe/views/widget/dialog/loading_dialog.dart';
 
 
 ///
@@ -82,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-            SizedBox(height:300),
+            SizedBox(height:250),
             SizedBox(height: 10,),
             Container(
              margin: EdgeInsets.all(20),
@@ -158,7 +160,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 SizedBox(width: 10,),
                                 GestureDetector(
-                                  child: Text("Get OTP",
+                                  onTap: _cancel,
+                                  child: Text("Cancel",
                                   style: TextStyle(
                                     fontSize: 22,
                                     color: Colors.blue,
@@ -192,37 +195,44 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
-                      onPressed:_setOtp,
-                                            child: Text (!isValid? "ENTER PHONE NUMBER": "CONTINUE", style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white,
-                                            ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 50,
-                                      ),
-                                      Text("#DON'T GO OUT AT THIS TIME",
-                                       style: TextStyle(fontSize: 20, color: Colors.grey, fontStyle: FontStyle.italic),
-                                       ),
-                                       Text("#STAY AT HOME IS RESPONSIBILITY",
-                                       style: TextStyle(fontSize: 20, color: Colors.grey, fontStyle: FontStyle.italic),
-                                       )
-                                    ],
+                      onPressed:!isValid?null:_setOtp,
+                      child: Text (!isValid? "ENTER PHONE NUMBER": "CONTINUE", style: TextStyle(
+                            fontSize: 15,
+                                color: Colors.white,
                                   ),
-                                )],
                               ),
-                          );
-                        }
+                           ),
+                            ),
+                          ),
+                          SizedBox(
+                              height: 30,
+                             ),
+                              Text("#DON'T GO OUT AT THIS TIME",
+                                style: TextStyle(fontSize: 20, color: Colors.grey, fontStyle: FontStyle.italic),
+                                 ),
+                               Text("#STAY AT HOME IS RESPONSIBILITY",
+                            style: TextStyle(fontSize: 20, color: Colors.grey, fontStyle: FontStyle.italic),
+                               )
+                        ],
+                         ),
+                      )],
+                    ),
+               );
+             }
 void _onLogin() {
-                         
+  LoadingDialog.showLoadingDialog(context, 'Loading...');
+  LoadingDialog.hideLoadingDialog(context);
+   Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context){
+            return MainScreen();
+          },
+        ), 
+      );
+                     
 }
                                         
 void _setOtp() {
-  if (!isValid) return null;
-  else{
   setState(() {
     otpScreen = true;
     isenbale = true;
@@ -230,5 +240,10 @@ void _setOtp() {
     if( _otpController.text.length ==6) return _onLogin();
     else return null;
   }
+  void _cancel(){
+ setState(() {
+    otpScreen = false;
+    isenbale = false;
+    });
   }
 }
