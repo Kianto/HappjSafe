@@ -15,56 +15,73 @@ class history_card extends StatelessWidget {
     String _formatFrom = new DateFormat.yMMMd().format(datefrom);
     String _formatTo = new DateFormat.yMMMd().format(dateto);
     return Container(
-      margin: EdgeInsets.all(2),
-      color: Colors.white,
-      child: Container(
-        padding: EdgeInsets.all(5),
-        margin: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-        border: Border(
-        left:type == 0?BorderSide(width: 4.0, color: Colors.green):
-        BorderSide(width: 4.0, color: Colors.red,)
-        )
-      ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(title,style: TextStyle(fontSize: 25, color: type==0?Colors.green:Colors.red),),
-            SizedBox(height: 10,),
-            Row(
-              children: <Widget>[
-                Icon(Icons.account_circle, size:50,color: Colors.grey,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Icon(Icons.location_on,size: 20,color: Colors.grey,),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text("Form : $from", style: TextStyle(fontSize: 20, color: Colors.black87),)
-                      ],
-                      ),
-                    Text(" Date From : ${_formatFrom}", style: TextStyle(fontSize: 20, color: Colors.black54),),
-                    SizedBox(height: 10,),
-                    Row(
-                      children: <Widget>[
-                        Icon(Icons.location_on,size: 20,color: Colors.grey,),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text("To: $to", style: TextStyle(fontSize: 20, color: Colors.black87,),)
-                      ],
-                      ),
-                    Text("Date To: ${_formatTo}", style: TextStyle(fontSize: 20, color: Colors.black54),maxLines: 2)
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+    color: Colors.grey[100],
+     child: Container(
+       margin: EdgeInsets.all(10),
+       padding: EdgeInsets.all(20),
+       decoration: BoxDecoration(
+         border: Border.all(width: 1,color: Colors.grey),
+         borderRadius: BorderRadius.circular(20),
+         color:type == 0? Colors.white:Colors.red,
+       ),
+       child: Column(
+         children: <Widget>[
+           Row(
+             children: <Widget>[
+               Image.asset("assets/images/Location-red.png",
+               width: 30,
+               height: 30,),
+               Text(from,style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),)
+             ],
+           ),
+           Row(
+             children: <Widget>[
+               SizedBox(width: 30,),
+               Icon(Icons.access_time, size: 20,),
+               Container(
+                 padding: EdgeInsets.all(5),
+                 decoration: BoxDecoration(
+                   border: Border(
+                     top: BorderSide(width:2,color:Colors.grey)
+                   )
+                 ),
+                 child: Text(_formatFrom,style: TextStyle(fontSize: 18,color: Colors.black87),)
+                 ),
+             ],
+           ),
+               Image.asset("assets/images/From-to.png",
+               fit: BoxFit.fill,
+               width: 70,
+               height: 60,
+               ),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+             children: <Widget>[
+               Container(child: Text(to,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.black,),)),
+               Image.asset("assets/images/Location-blue.png",
+               width: 30,
+               height: 30,),
+             ],
+           ),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.end,
+             children: <Widget>[
+               Container(
+                 padding: EdgeInsets.all(5),
+                 decoration: BoxDecoration(
+                   border: Border(
+                     top: BorderSide(width:2,color:Colors.grey)
+                   )
+                 ),
+                 child: Text(_formatTo,style: TextStyle(fontSize: 18,color: Colors.black87),)
+                 ),
+                 Icon(Icons.access_time, size: 20,),
+                 SizedBox(width: 30,),
+             ],
+           ),
+         ],
+       ),
+     ),
       
     );
   }
