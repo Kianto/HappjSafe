@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        children: <Widget>[
+        children: <Widget>[ 
           UserCodePage(),
           HistoryPage(),
           ScannerPage(),
@@ -97,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Color _getBottomIconColor(int index) {
     return _page == index
-        ? Theme.of(context).backgroundColor
+        ? Colors.white
         : Theme.of(context).textTheme.caption.color;
   }
 

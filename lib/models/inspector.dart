@@ -1,5 +1,6 @@
 import 'package:happjsafe/models/route.dart';
 
+import 'news.dart';
 import 'user.dart';
 
 ///
@@ -13,10 +14,15 @@ class Inspector extends User {
     String name,
     bool isGood,
     bool isInspector,
+    List<Route> history,
+    List<News> warnings,
     this.inspectingServiceId,
   })
       : assert(null != phone),
-        super(id: id, phone: phone, qrCode: qrCode, name: name, isGood: isGood, isInspector: isInspector);
+        super(id: id, phone: phone, qrCode: qrCode, name: name,
+          isGood: isGood, isInspector: isInspector,
+          history: history, warnings: warnings,
+      );
 
   Inspector.fromJson(Map<String, dynamic> json) {
     this.id = json['id'];
