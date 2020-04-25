@@ -4,11 +4,11 @@ import 'package:intl/intl.dart';
 import 'entity.dart';
 
 ///
-/// class MovementRoute extends Entity
+/// class Journey extends Entity
 ///
 
-class MovementRoute extends Entity {
-  MovementRoute({String id,
+class Journey extends Entity {
+  Journey({String id,
     this.serviceId,
     this.fromPlace,
     this.toPlace,
@@ -18,7 +18,7 @@ class MovementRoute extends Entity {
   })
       : super(id: id);
 
-  MovementRoute.fromJson(json) {
+  Journey.fromJson(json) {
     this.id = json['id'];
     this.serviceId = json['serviceId'];
     this.fromPlace = json['fromPlace'];

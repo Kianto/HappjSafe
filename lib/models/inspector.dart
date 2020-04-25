@@ -1,4 +1,4 @@
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 import 'user.dart';
 
 ///
@@ -14,7 +14,7 @@ class Inspector extends User {
 
   String id, phone, qrCode, name;
   bool isGood, isInspector;
-  List<MovementRoute> route;
+  List<Journey> route;
   var warnings;
   String inspectingServiceId;
 

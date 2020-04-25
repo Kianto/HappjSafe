@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:happjsafe/service/services.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 
 ///
 /// Scan other QR codes
@@ -21,7 +21,7 @@ class _ScannerPageState extends State<ScannerPage> {
   // TODO: GET service id after scan and with widget.userId to update
   // TODO: update data for both service passengers list and user history
   String scanResult = "...";
-  MovementRoute route;
+  Journey route;
 
   @override
   void initState() {
@@ -63,7 +63,7 @@ class _ScannerPageState extends State<ScannerPage> {
     });
     var data = ServiceService.get_service_info(barcode);
     data.then((value){
-        route = new MovementRoute(
+        route = new Journey(
           serviceId: barcode,
           fromPlace: value['fromPlace'],
           toPlace: value['toPlace'],
@@ -74,7 +74,7 @@ class _ScannerPageState extends State<ScannerPage> {
         UserService.update_user_history(widget.userId, route);
         ServiceService.update_passenger(widget.userId, barcode);
     });
-    //route = new MovementRoute.fromJson(ServiceService.get_service_info(barcode));
+    //route = new Journey.fromJson(ServiceService.get_service_info(barcode));
     
   }
 

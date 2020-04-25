@@ -2,7 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 
 
 class UserService {
@@ -16,7 +16,7 @@ class UserService {
 
 class ServiceService {
   static dynamic data;
-  static MovementRoute movermentRoute;
+  static Journey movermentRoute;
   static dynamic get_service_info(serviceid) async {
     var snapshot =  await Firestore.instance.collection("service").document(serviceid).get();
     return snapshot;

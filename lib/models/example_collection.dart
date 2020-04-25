@@ -1,5 +1,5 @@
 import 'package:happjsafe/models/news.dart';
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 import 'package:happjsafe/models/service.dart';
 import 'package:happjsafe/models/user.dart';
 
@@ -8,30 +8,30 @@ import 'package:happjsafe/models/user.dart';
 ///
 
 abstract class RouteCollector {
-  static List<MovementRoute> getCollection() {
+  static List<Journey> getCollection() {
     return [
-      MovementRoute(id: "11", serviceId: "Over Sea Ship",
+      Journey(id: "11", serviceId: "Over Sea Ship",
           fromPlace: "Hoang Sa",
           toPlace: "Truong Sa",
           fromTime: DateTime.now().subtract(Duration(days: 5)),
           toTime: DateTime.now().subtract(Duration(days: 5)).add(Duration(hours: 21)),
           isGood: true,
       ),
-      MovementRoute(id: "01", serviceId: "A Train",
+      Journey(id: "01", serviceId: "A Train",
         fromPlace: "HCM",
         toPlace: "HN",
         fromTime: DateTime.now().subtract(Duration(days: 2)),
         toTime: DateTime.now().subtract(Duration(days: 2)).add(Duration(hours: 5)),
           isGood: false,
       ),
-      MovementRoute(id: "02", serviceId: "ALVN",
+      Journey(id: "02", serviceId: "ALVN",
           fromPlace: "DN",
           toPlace: "Hue",
           fromTime: DateTime.now().subtract(Duration(days: 1)),
           toTime: DateTime.now().subtract(Duration(days: 1)).add(Duration(hours: 3)),
         isGood: true,
       ),
-      MovementRoute(id: "01", serviceId: "ALVN",
+      Journey(id: "01", serviceId: "ALVN",
           fromPlace: "TS",
           toPlace: "HS",
           fromTime: DateTime.now(),

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 import 'package:happjsafe/models/user.dart';
 import 'package:happjsafe/views/widgets/journey_card.dart';
 
@@ -46,7 +46,7 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   Widget _buildItems(BuildContext context, document) {
-    var journey = new MovementRoute(
+    var journey = new Journey(
       isGood: document['isGood'],
       fromPlace: document['fromPlace'],
       toPlace: document['toPlace'],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/journey.dart';
 
 class JourneyCard extends StatelessWidget {
   const JourneyCard({Key key, this.journey}) : super(key: key);
 
-  final MovementRoute journey;
+  final Journey journey;
 
   @override
   Widget build(BuildContext context) {

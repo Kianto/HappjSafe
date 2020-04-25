@@ -1,8 +1,6 @@
-import 'package:happjsafe/models/route.dart';
-
 import 'entity.dart';
 import 'news.dart';
-import 'route.dart';
+import 'journey.dart';
 
 ///
 /// class User extends Entity
@@ -32,7 +30,7 @@ class User extends Entity {
 
     if (null != (json['history'] as List)) {
       List<Map> hisMap = (json['history'] as List).map((item) => item as Map).toList();
-      this.history = hisMap.map((map) => MovementRoute.fromJson(map)).toList();
+      this.history = hisMap.map((map) => Journey.fromJson(map)).toList();
     } else {
       this.history = [];
     }
@@ -52,7 +50,7 @@ class User extends Entity {
   String name;
   bool isGood;
   bool isInspector;
-  List<MovementRoute> history;
+  List<Journey> history;
   List<News> warnings;
 
   String get contact {
