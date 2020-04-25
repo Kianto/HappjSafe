@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:happjsafe/models/news.dart';
 import 'package:happjsafe/models/user.dart';
 import 'package:happjsafe/views/widgets/news_card.dart';
@@ -20,6 +21,22 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   @override
+  void initState() {
+    super.initState();
+    if (null != widget.loggedUser.warnings && widget.loggedUser.warnings.isNotEmpty) {
+      Fluttertoast.showToast(
+          msg: "There is a defected case had used the same service with you. Please check yourself.",
+          toastLength: Toast.LENGTH_SHORT,
+          fontSize: 18.0,
+          backgroundColor: Colors.orange,
+          textColor: Colors.white,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIos: 5,
+      );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
         color: Colors.grey[200],
@@ -36,6 +53,13 @@ class _NotificationPageState extends State<NotificationPage> {
                 );
 
               List<News> warnList = widget.loggedUser.warnings;
+
+              List<News> temp = [];
+              for(var a in warnList) {
+                if (a.isDanger == true) temp.add(a);
+              }
+              warnList = temp;
+
               List newsList = snapshot.data.documents
                   .map((doc) => News.fromJson(doc.data))
                   .toList();

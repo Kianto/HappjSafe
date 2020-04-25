@@ -45,7 +45,7 @@ class NewsCard extends StatelessWidget {
         Text(
           news.title.toUpperCase(),
           style: TextStyle(
-            color: Colors.black,
+            color: news.isDanger ? Colors.red : Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold
           ),

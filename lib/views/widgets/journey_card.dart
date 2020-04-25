@@ -10,7 +10,8 @@ class JourneyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey[100],
-      child: Container(
+      child: AnimatedContainer(
+        duration: Duration(seconds: 1),
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -105,6 +106,7 @@ class JourneyCard extends StatelessWidget {
           ],
         ),
       ),
+
     );
   }
 }

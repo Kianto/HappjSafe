@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:happjsafe/models/journey.dart';
 import 'package:happjsafe/models/user.dart';
 import 'package:happjsafe/views/widgets/journey_card.dart';
@@ -20,6 +21,22 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
+  @override
+  void initState() {
+    super.initState();
+    if (null != widget.loggedUser.warnings && widget.loggedUser.warnings.isNotEmpty) {
+      Fluttertoast.showToast(
+          msg: "There is a defected case had used the same service with you. Please check yourself.",
+          toastLength: Toast.LENGTH_SHORT,
+          fontSize: 18.0,
+          backgroundColor: Colors.orange,
+          textColor: Colors.white,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIos: 5
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Journey> history = widget.loggedUser.history.reversed.toList();
