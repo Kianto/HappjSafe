@@ -8,6 +8,10 @@ import 'package:happjsafe/views/travel_scanner.dart';
 import 'package:happjsafe/views/service_code.dart';
 
 class TravelProviderApp extends StatelessWidget {
+  TravelProviderApp({Key key, @required this.userId}) : super(key: key);
+
+  final String userId;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,13 +19,18 @@ class TravelProviderApp extends StatelessWidget {
       title: Constants.appName_TRAVEL,
       theme: ThemeData(
         primarySwatch: Colors.purple,
+        accentColor: Colors.purple[300],
       ),
-      home: MainTravelScreen(),
+      home: MainTravelScreen(userId: userId),
     );
   }
 }
 
 class MainTravelScreen extends StatefulWidget {
+  MainTravelScreen({Key key, @required this.userId}) : super(key: key);
+
+  final String userId;
+
   @override
   _MainTravelScreenState createState() => _MainTravelScreenState();
 }
@@ -40,7 +49,7 @@ class _MainTravelScreenState extends State<MainTravelScreen> {
       ),
 
       body: StreamBuilder<DocumentSnapshot>(
-        stream: UserController.getUserStream("rqja0ZD4YsXS4b2MHdiRmqIDetH3"),
+        stream: UserController.getUserStream(widget.userId),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(

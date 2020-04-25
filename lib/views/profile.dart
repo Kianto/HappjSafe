@@ -45,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
       floatingActionButton: widget.loggedUser.isInspector
           ? FloatingActionButton(
-            child: Icon(Icons.send),
+            child: Icon(Icons.swap_horiz),
             onPressed: _onSwitchInspector,
             heroTag: null,
           )
@@ -203,8 +203,8 @@ class _ProfilePageState extends State<ProfilePage> {
       MaterialPageRoute(
         builder: (BuildContext context){
           return (null != widget.isTravelApp && widget.isTravelApp)
-              ? MainScreen()
-              : MainTravelScreen();
+              ? MainScreen(userId: widget.loggedUser.id)
+              : TravelProviderApp(userId: widget.loggedUser.id);
         },
       ),
     );
