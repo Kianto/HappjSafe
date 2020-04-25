@@ -24,13 +24,13 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     Widget screen = Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false, 
         centerTitle: true,
         title: Text(Constants.appName_SAFE),
       ),
 
       body: StreamBuilder<DocumentSnapshot>(
-//        stream: UserController.getUserStream("7gU0TRNZGyRIxORoGiz5fNVS5Hx1"),
+       //stream: UserController.getUserStream("7gU0TRNZGyRIxORoGiz5fNVS5Hx1"),
         stream: UserController.getUserStream("rqja0ZD4YsXS4b2MHdiRmqIDetH3"),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {

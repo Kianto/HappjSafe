@@ -47,6 +47,7 @@ class _HistoryPageState extends State<HistoryPage> {
 
   Widget _buildItems(BuildContext context, document) {
     var journey = new Journey(
+      serviceId: document['serviceId'],
       isGood: document['isGood'],
       fromPlace: document['fromPlace'],
       toPlace: document['toPlace'],

@@ -18,6 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Constants.appName_SAFE,
       home: SplashScreen(),
+      theme: ThemeData(
+        // ••• ADD THIS: App Bar Theme: •••
+        appBarTheme: AppBarTheme(
+          elevation: 0, // This removes the shadow from all App Bars.
+        )
+      ),
     );
   }
 }

@@ -69,7 +69,7 @@ class _ScannerPageState extends State<ScannerPage> {
           toPlace: value['toPlace'],
           fromTime: value['fromTime'].toDate(),
           toTime: value['toTime'].toDate(),
-          isGood: true,
+          isGood: value['isGood'],
         );
         UserService.update_user_history(widget.userId, route);
         ServiceService.update_passenger(widget.userId, barcode);
