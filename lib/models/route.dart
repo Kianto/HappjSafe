@@ -3,11 +3,11 @@ import 'package:intl/intl.dart';
 import 'entity.dart';
 
 ///
-/// class Route extends Entity
+/// class MovementRoute extends Entity
 ///
 
-class Route extends Entity {
-  Route({String id,
+class MovementRoute extends Entity {
+  MovementRoute({String id,
     this.serviceId,
     this.fromPlace,
     this.toPlace,
@@ -18,7 +18,7 @@ class Route extends Entity {
       : assert(null != serviceId),
         super(id: id);
 
-  Route.fromJson(Map<String, dynamic> json) {
+  MovementRoute.fromJson(json) {
     this.id = json['id'];
     this.serviceId = json['serviceId'];
     this.fromPlace = json['fromPlace'];

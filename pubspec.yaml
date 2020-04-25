@@ -36,6 +36,8 @@ flutter:
     - assets/images/flash.gif
     - assets/images/bg.jpg
     - assets/images/logo.png
+    - assets/images/happy-face.png
+    - assets/images/sick-face.png
 
 
 

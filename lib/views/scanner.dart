@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:happjsafe/service/services.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:happjsafe/models/route.dart';
 
 ///
 /// Scan other QR codes
@@ -16,6 +17,7 @@ class ScannerPage extends StatefulWidget {
 
 class _ScannerPageState extends State<ScannerPage> {
   String scanResult = "...";
+  MovementRoute route;
 
   @override
   void initState() {
@@ -49,6 +51,21 @@ class _ScannerPageState extends State<ScannerPage> {
     setState(() {
       scanResult = barcode;
     });
+    var data = ServiceService.get_service_info(barcode);
+    data.then((value){
+        route = new MovementRoute(
+          serviceId: barcode,
+          fromPlace: value['fromPlace'],
+          toPlace: value['toPlace'],
+          fromTime: value['fromTime'].toDate(),
+          toTime: value['toTime'].toDate(),
+          isGood: true,
+        );
+        UserService.update_user_history('7gU0TRNZGyRIxORoGiz5fNVS5Hx1', route);
+        ServiceService.update_passenger('7gU0TRNZGyRIxORoGiz5fNVS5Hx1', barcode);
+    });
+    //route = new MovementRoute.fromJson(ServiceService.get_service_info(barcode));
+    
   }
 
 }

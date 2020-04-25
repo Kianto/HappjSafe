@@ -28,7 +28,7 @@ class Inspector extends User {
     this.warnings = json['warnings'];
 
     List<Map<String, dynamic>> temp = json['history'];
-    this.history = temp.map((map) => Route.fromJson(map)).toList();
+    this.history = temp.map((map) => MovementRoute.fromJson(map)).toList();
 
     this.inspectingServiceId = json['inspectingServiceId'];
   }

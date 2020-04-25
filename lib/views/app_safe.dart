@@ -59,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(width: 10),
           ],
         ),
-        color: Theme.of(context).primaryColor,
+        color: Colors.white,
       ),
     );
 
@@ -97,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Color _getBottomIconColor(int index) {
     return _page == index
-        ? Theme.of(context).backgroundColor
+        ? Colors.black
         : Theme.of(context).textTheme.caption.color;
   }
 

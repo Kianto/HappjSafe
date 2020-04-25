@@ -8,30 +8,30 @@ import 'package:happjsafe/models/user.dart';
 ///
 
 abstract class RouteCollector {
-  static List<Route> getCollection() {
+  static List<MovementRoute> getCollection() {
     return [
-      Route(id: "11", serviceId: "Over Sea Ship",
+      MovementRoute(id: "11", serviceId: "Over Sea Ship",
           fromPlace: "Hoang Sa",
           toPlace: "Truong Sa",
           fromTime: DateTime.now().subtract(Duration(days: 5)),
           toTime: DateTime.now().subtract(Duration(days: 5)).add(Duration(hours: 21)),
           isGood: true,
       ),
-      Route(id: "01", serviceId: "A Train",
+      MovementRoute(id: "01", serviceId: "A Train",
         fromPlace: "HCM",
         toPlace: "HN",
         fromTime: DateTime.now().subtract(Duration(days: 2)),
         toTime: DateTime.now().subtract(Duration(days: 2)).add(Duration(hours: 5)),
           isGood: false,
       ),
-      Route(id: "02", serviceId: "ALVN",
+      MovementRoute(id: "02", serviceId: "ALVN",
           fromPlace: "DN",
           toPlace: "Hue",
           fromTime: DateTime.now().subtract(Duration(days: 1)),
           toTime: DateTime.now().subtract(Duration(days: 1)).add(Duration(hours: 3)),
         isGood: true,
       ),
-      Route(id: "01", serviceId: "ALVN",
+      MovementRoute(id: "01", serviceId: "ALVN",
           fromPlace: "TS",
           toPlace: "HS",
           fromTime: DateTime.now(),

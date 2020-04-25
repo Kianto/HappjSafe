@@ -37,7 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 children: <Widget>[
                   SizedBox(height: 20,),
-                  Text("Your Info",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  Text("Your Info",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
                   SizedBox(height: 20,),
                   Container(
                     width: 250,
@@ -53,6 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 100,
                         fit: BoxFit.fill,
                         ),
+                        SizedBox(height: 10),
                         Text(status,
                         style: TextStyle(fontSize: 30,
                         color: Colors.blue,

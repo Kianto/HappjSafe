@@ -29,7 +29,7 @@ class User extends Entity {
     this.isInspector = json['isInspector'];
 
     List<Map<String, dynamic>> hisMap = json['history'];
-    this.history = hisMap.map((map) => Route.fromJson(map)).toList();
+    this.history = hisMap.map((map) => MovementRoute.fromJson(map)).toList();
 
     List<Map<String, dynamic>> warnMap = json['warnings'];
     this.warnings = warnMap.map((map) => News.fromJson(map)).toList();
@@ -40,7 +40,7 @@ class User extends Entity {
   String name;
   bool isGood;
   bool isInspector;
-  List<Route> history;
+  List<MovementRoute> history;
   List<News> warnings;
 
   String get contact {
