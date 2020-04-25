@@ -54,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget _buildHeader(User user) {
     return Container(
       width: double.infinity,
-      color: color,
+      color: user.isGood ? Colors.blue : Colors.red,
       child: Column(
         children: <Widget>[
           SizedBox(height: 20),
@@ -84,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   user.isGood ? statusGood : statusSick,
                   style: TextStyle(
                       fontSize: 30,
-                      color: Colors.blue,
+                      color: user.isGood ? Colors.blue : Colors.red,
                       fontWeight: FontWeight.bold),
                 ),
               ],
