@@ -20,11 +20,12 @@ class ServiceCodePage extends StatefulWidget {
 }
 
 class _ServiceCodePageState extends State<ServiceCodePage> {
+  bool isDanger =false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Colors.grey[100],
+        color: isDanger?Colors.red: Colors.grey[100],
         child: StreamBuilder<DocumentSnapshot>(
           stream: ServiceController.getUserStream(widget.inspector.inspectingServiceId),
           builder: (context, snapshot) {
