@@ -22,38 +22,21 @@ class HistoryPage extends StatefulWidget {
 class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
+    List<Journey> history = widget.loggedUser.history.reversed.toList();
+
     return Container(
         color: Colors.grey[200],
-        child: StreamBuilder(
-            stream:
-                Firestore.instance.collection('user').document(widget.loggedUser.id).snapshots(), // async work
-            builder: (context, snapshot) {
-              if (!snapshot.hasData)
-                return Center(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[CircularProgressIndicator()],
-                ));
-              return ListView.builder(
+        child: ListView.builder(
                 shrinkWrap: false,
                 scrollDirection: Axis.vertical,
-                itemCount: snapshot.data['history'].length,
+                itemCount: history.length,
                 itemBuilder: (context, index) =>
-                    _buildItems(context, snapshot.data['history'][index]),
-              );
-            }));
+                    _buildItems(context, history[index]),
+              )
+    );
   }
 
-  Widget _buildItems(BuildContext context, document) {
-    var journey = new Journey(
-      serviceId: document['serviceId'],
-      isGood: document['isGood'],
-      fromPlace: document['fromPlace'],
-      toPlace: document['toPlace'],
-      fromTime: document['fromTime'].toDate(),
-      toTime: document['toTime'].toDate()
-    );
+  Widget _buildItems(BuildContext context, Journey journey) {
     return JourneyCard(journey: journey);
   }
 }

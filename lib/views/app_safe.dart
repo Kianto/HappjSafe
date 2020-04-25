@@ -14,6 +14,10 @@ import 'notification.dart';
 
 
 class MainScreen extends StatefulWidget {
+  MainScreen({Key key, @required this.userId}) : super(key: key);
+
+  final String userId;
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -43,8 +47,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
 
       body: StreamBuilder<DocumentSnapshot>(
-       //stream: UserController.getUserStream("7gU0TRNZGyRIxORoGiz5fNVS5Hx1"),
-        stream: UserController.getUserStream("rqja0ZD4YsXS4b2MHdiRmqIDetH3"),
+        stream: UserController.getUserStream(widget.userId),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(

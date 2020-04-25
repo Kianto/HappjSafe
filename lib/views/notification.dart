@@ -49,7 +49,7 @@ class _NotificationPageState extends State<NotificationPage> {
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                        (context, index) => _buildItems(context, newsList[index]),
+                    (context, index) => _buildItems(context, newsList[index]),
                     childCount: newsList.length,
                   ),
                 ),

@@ -18,6 +18,20 @@ class _CareChatBotState extends State<CareChatBot> {
   final List<Facts> messageList = <Facts>[];
   final TextEditingController _textController = new TextEditingController();
 
+  @override
+  initState() {
+    setState(() {
+      messageList.add(
+        Facts(
+          text: "How are you today?",
+          name: "Happj",
+          isUser: false,
+        )
+      );
+    });
+    super.initState();
+  }
+
   Widget _queryInputWidget(BuildContext context) {
     return Card(
       margin: EdgeInsets.all(10),
@@ -57,7 +71,7 @@ class _CareChatBotState extends State<CareChatBot> {
       Facts message = Facts(
         text: response.getMessage() ??
             CardDialogflow(response.getListMessage()[0]).title,
-        name: "Flutter",
+        name: "Happj",
         isUser: false,
       );
       setState(() {

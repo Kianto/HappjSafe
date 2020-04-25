@@ -21,15 +21,15 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
   bool isSuccess;
   Journey route;
   User user;
-  String userName;
-  String userPhoneNumber;
+//  String userName;
+//  String userPhoneNumber;
 
   @override
   void initState() {
     super.initState();
     setState(() {
-      userName = 'Unknown';
-      userPhoneNumber = 'Unknow phone number';
+//      userName = 'Unknown';
+//      userPhoneNumber = 'Unknow phone number';
       isSuccess = false;
     });
     _scan();
@@ -42,8 +42,9 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
           ? Container(
               width: double.infinity,
               height: double.infinity,
-              color: Colors.blue,
+              color: Colors.blue[400],
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 20),
                   Stack(
@@ -95,22 +96,22 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text(userName,
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(userPhoneNumber,
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                  SizedBox(
-                    height: 10,
-                  ),
+//                  Text(userName,
+//                      style: TextStyle(
+//                          fontSize: 30,
+//                          color: Colors.white,
+//                          fontWeight: FontWeight.bold)),
+//                  SizedBox(
+//                    height: 10,
+//                  ),
+//                  Text(userPhoneNumber,
+//                      style: TextStyle(
+//                          fontSize: 30,
+//                          color: Colors.white,
+//                          fontWeight: FontWeight.bold)),
+//                  SizedBox(
+//                    height: 10,
+//                  ),
                   Container(
                     margin: EdgeInsets.all(20),
                     width: double.infinity,
@@ -127,6 +128,7 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
                   ),
+                  SizedBox(height: 50,)
                 ],
               ),
             )
@@ -198,8 +200,8 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
     data = UserService.get_user_info(barcode);
     data.then((value) {
       setState(() {
-        userName = value['name'];
-        userPhoneNumber = value['phone'];
+//        userName = value['name'];
+//        userPhoneNumber = value['phone'];
       });
     });
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:happjsafe/models/journey.dart';
+import 'package:happjsafe/models/service.dart';
 import 'package:happjsafe/service/services.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
@@ -26,11 +27,11 @@ class _UserScannerPageState extends State<UserScannerPage> {
   void initState() {
     super.initState();
     setState(() {
-      _provider = "Vietnam Airline";
-      _from = "Thủ dầu một, Bình Dương, Việt Nam ";
-      _to = "San Franssico, United State, USA";
-      _datefrom = "20 Apr 2020, 20:30 PM";
-      _dateto = "30 Apr 2020, 24:00 AM";
+      _provider = "";
+      _from = "";
+      _to = "";
+      _datefrom = "";
+      _dateto = "";
     });
     _scan();
   }
@@ -83,13 +84,11 @@ class _UserScannerPageState extends State<UserScannerPage> {
               Container(
                 width: MediaQuery.of(context).size.width * 0.7,
                 decoration: BoxDecoration(
-                  
+
                     color: Colors.white,
                     border: Border.all(width: 1, color: Colors.white)),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.all(20),
                 child: Column(
@@ -97,9 +96,12 @@ class _UserScannerPageState extends State<UserScannerPage> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "Provider: ",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        Container(
+                          width: 70.0,
+                          child: Text(
+                            "Provider: ",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Text(
@@ -114,9 +116,12 @@ class _UserScannerPageState extends State<UserScannerPage> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "From: ",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        Container(
+                          width: 70.0,
+                          child: Text(
+                            "From: ",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Expanded(
@@ -130,9 +135,12 @@ class _UserScannerPageState extends State<UserScannerPage> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "To: ",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        Container(
+                          width: 70.0,
+                          child: Text(
+                            "To: ",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Expanded(
@@ -145,9 +153,12 @@ class _UserScannerPageState extends State<UserScannerPage> {
                     SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Text(
-                          "Date: ",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        Container(
+                          width: 70.0,
+                          child: Text(
+                            "Date: ",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Column(
@@ -210,12 +221,14 @@ class _UserScannerPageState extends State<UserScannerPage> {
     var data = ServiceService.get_service_info(barcode);
 
     data.then((value){
+      Service s = Service.fromJson(value.data);
+
       setState(() {
         _provider = value['provider'];
         _from = value['fromPlace'];
         _to = value['toPlace'];
-        _datefrom = value['fromTime'];
-        _dateto = value['toTime'];
+        _datefrom = s.departureTime;
+        _dateto = s.departureTime;
       });
     });
 

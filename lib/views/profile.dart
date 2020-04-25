@@ -204,7 +204,7 @@ class _ProfilePageState extends State<ProfilePage> {
         builder: (BuildContext context){
           return (null != widget.isTravelApp && widget.isTravelApp)
               ? MainScreen(userId: widget.loggedUser.id)
-              : TravelProviderApp(userId: widget.loggedUser.id);
+              : MainTravelScreen(userId: widget.loggedUser.id);
         },
       ),
     );

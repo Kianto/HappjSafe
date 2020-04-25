@@ -21,7 +21,7 @@ class UserService {
 class ServiceService {
   static dynamic data;
   static Journey movermentRoute;
-  static dynamic get_service_info(serviceid) async {
+  static Future<DocumentSnapshot> get_service_info(serviceid) async {
     var snapshot =  await Firestore.instance.collection("service").document(serviceid).get();
     return snapshot;
   }

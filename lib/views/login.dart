@@ -255,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
       MaterialPageRoute(
         builder: (BuildContext context) {
           // TODO: if success => get id
-          //"7gU0TRNZGyRIxORoGiz5fNVS5Hx1"
+//          return MainScreen(userId: "7gU0TRNZGyRIxORoGiz5fNVS5Hx1",);
           return MainScreen(userId: "rqja0ZD4YsXS4b2MHdiRmqIDetH3",);
           //TravelProviderApp(userId: widget.loggedUser.id);
         },

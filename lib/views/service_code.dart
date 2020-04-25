@@ -111,9 +111,12 @@ class _ServiceCodePageState extends State<ServiceCodePage> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "Provider: ",
-                          style: TextStyle(fontSize: 18),
+                        Container(
+                          width: 90.0,
+                          child: Text(
+                            "Provider: ",
+                            style: TextStyle(fontSize: 18),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Text(
@@ -125,9 +128,12 @@ class _ServiceCodePageState extends State<ServiceCodePage> {
                     ),
                     Row(
                       children: <Widget>[
-                        Text(
-                          "From: ",
-                          style: TextStyle(fontSize: 18),
+                        Container(
+                          width: 90.0,
+                          child: Text(
+                            "From: ",
+                            style: TextStyle(fontSize: 18),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Expanded(
@@ -141,9 +147,12 @@ class _ServiceCodePageState extends State<ServiceCodePage> {
                     SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Text(
-                          "To: ",
-                          style: TextStyle(fontSize: 18),
+                        Container(
+                          width: 90.0,
+                          child: Text(
+                            "To: ",
+                            style: TextStyle(fontSize: 18),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Expanded(
@@ -157,9 +166,12 @@ class _ServiceCodePageState extends State<ServiceCodePage> {
                     SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Text(
-                          "Date: ",
-                          style: TextStyle(fontSize: 18),
+                        Container(
+                          width: 90.0,
+                          child: Text(
+                            "Date: ",
+                            style: TextStyle(fontSize: 18),
+                          ),
                         ),
                         SizedBox(width: 5),
                         Column(
