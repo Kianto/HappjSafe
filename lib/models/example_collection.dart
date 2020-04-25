@@ -102,7 +102,6 @@ abstract class UserCollector {
       name: "Happj Man",
       isGood: true,
       isInspector: false,
-      history: RouteCollector.getCollection(),
       warnings: [News(id: "000pp",
         title: "Warning",
         content: "The trip from HN to HCM you have joined in April 20 had reported an infected case!",

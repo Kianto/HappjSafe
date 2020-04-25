@@ -9,13 +9,17 @@ import 'package:happjsafe/models/route.dart';
 ///
 
 class ScannerPage extends StatefulWidget {
+  ScannerPage({Key key, @required this.userId}) : super(key: key);
+
+  final String userId;
 
   @override
   State<StatefulWidget> createState() => _ScannerPageState();
-
 }
 
 class _ScannerPageState extends State<ScannerPage> {
+  // TODO: GET service id after scan and with widget.userId to update
+  // TODO: update data for both service passengers list and user history
   String scanResult = "...";
   MovementRoute route;
 
@@ -34,13 +38,19 @@ class _ScannerPageState extends State<ScannerPage> {
         children: <Widget>[
           Center(child: Text(scanResult, style: Theme.of(context).textTheme.subtitle,)),
           Divider(),
-          Center(
-            child: RaisedButton(
-              child: Text("Continue"),
-              onPressed: _scan,
-            ),
-          )
-
+          Container(
+           margin: EdgeInsets.all(50),
+              width: double.infinity,
+              height: 50,
+                child: RaisedButton(
+                child:Text("Continue",style: TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold)) ,
+                 onPressed:_scan ,
+                 color: Colors.blue,
+                 shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                   ),
+                ),
         ]
     );
   }
@@ -61,8 +71,8 @@ class _ScannerPageState extends State<ScannerPage> {
           toTime: value['toTime'].toDate(),
           isGood: true,
         );
-        UserService.update_user_history('7gU0TRNZGyRIxORoGiz5fNVS5Hx1', route);
-        ServiceService.update_passenger('7gU0TRNZGyRIxORoGiz5fNVS5Hx1', barcode);
+        UserService.update_user_history(widget.userId, route);
+        ServiceService.update_passenger(widget.userId, barcode);
     });
     //route = new MovementRoute.fromJson(ServiceService.get_service_info(barcode));
     

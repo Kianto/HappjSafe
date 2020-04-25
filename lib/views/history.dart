@@ -1,28 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:happjsafe/views/widget/history_Card.dart';
+import 'package:happjsafe/models/route.dart';
+import 'package:happjsafe/models/user.dart';
+import 'package:happjsafe/views/widgets/journey_card.dart';
 
 ///
 /// Show list scan history
-/// Background red for infected case route
+/// Background red for infected case Journey
 ///
 
 class HistoryPage extends StatefulWidget {
+  HistoryPage({Key key, @required this.loggedUser}) : super(key: key);
+
+  final User loggedUser;
+
   @override
   State<StatefulWidget> createState() => _HistoryPageState();
 }
 
 class _HistoryPageState extends State<HistoryPage> {
-  String currentUserID = "7gU0TRNZGyRIxORoGiz5fNVS5Hx1";
-
   @override
   Widget build(BuildContext context) {
     return Container(
         color: Colors.grey[200],
         child: StreamBuilder(
             stream:
-                Firestore.instance.collection('user').document(currentUserID).snapshots(), // async work
+                Firestore.instance.collection('user').document(widget.loggedUser.id).snapshots(), // async work
             builder: (context, snapshot) {
               if (!snapshot.hasData)
                 return Center(
@@ -42,15 +46,13 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   Widget _buildItems(BuildContext context, document) {
-    print(document);
-    return history_card(
-      
-      title: "Scan history",
-      type: 0, //Background red for infected case notification : type != 0
-      from: document['fromPlace'],
-      to: document['toPlace'],
-      datefrom: document['fromTime'].toDate(),
-      dateto: document['toTime'].toDate()
+    var journey = new MovementRoute(
+      isGood: document['isGood'],
+      fromPlace: document['fromPlace'],
+      toPlace: document['toPlace'],
+      fromTime: document['fromTime'].toDate(),
+      toTime: document['toTime'].toDate()
     );
+    return JourneyCard(journey: journey);
   }
 }

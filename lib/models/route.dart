@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 import 'entity.dart';
@@ -15,16 +16,15 @@ class MovementRoute extends Entity {
     this.toTime,
     this.isGood,
   })
-      : assert(null != serviceId),
-        super(id: id);
+      : super(id: id);
 
   MovementRoute.fromJson(json) {
     this.id = json['id'];
     this.serviceId = json['serviceId'];
     this.fromPlace = json['fromPlace'];
     this.toPlace = json['toPlace'];
-    this.fromTime = json['fromTime'];
-    this.toTime = json['toTime'];
+    this.fromTime = (json['fromTime'] as Timestamp).toDate();
+    this.toTime = (json['toTime'] as Timestamp).toDate();
     this.isGood = json['isGood'];
   }
 

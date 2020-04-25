@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:happjsafe/views/app_safe.dart';
-import 'package:happjsafe/views/widget/dialog/loading_dialog.dart';
+import 'package:happjsafe/views/widgets/dialog/loading_dialog.dart';
 
 ///
 /// Login form - authenticate user by phone
 ///
-
 class LoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _LoginScreenState();
@@ -56,16 +55,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
                       colors: [
-                    Colors.black.withOpacity(1),
-                    Colors.black.withOpacity(0.9),
-                    Colors.black.withOpacity(0.8),
-                    Colors.black.withOpacity(0.7),
-                    Colors.black.withOpacity(0.6),
-                    Colors.black.withOpacity(0.5),
-                    Colors.black.withOpacity(0.1),
-                    Colors.black.withOpacity(0.05),
-                    Colors.black.withOpacity(0.025),
-                  ])),
+                        Colors.black.withOpacity(1),
+                        Colors.black.withOpacity(0.9),
+                        Colors.black.withOpacity(0.8),
+                        Colors.black.withOpacity(0.7),
+                        Colors.black.withOpacity(0.6),
+                        Colors.black.withOpacity(0.5),
+                        Colors.black.withOpacity(0.1),
+                        Colors.black.withOpacity(0.05),
+                        Colors.black.withOpacity(0.025),
+                      ])),
               child: Padding(
                 padding: const EdgeInsets.only(top: 0.8),
                 child: Container(),
@@ -104,102 +103,102 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                         child: StreamBuilder(
                             builder: (state, snapshot) => TextField(
-                                  controller: _phoneNumberController,
-                                  autofocus: true,
-                                  onChanged: (text) {
-                                    validate(snapshot);
-                                  },
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.black),
-                                  decoration: InputDecoration(
-                                      labelText: "Phone",
-                                      enabled: !isenbale,
-                                      errorText: snapshot.hasError
-                                          ? snapshot.error
-                                          : null,
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      prefixIcon: Container(
-                                          width: 50, child: Icon(Icons.phone)),
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Color(0xffCED0D2),
-                                              width: 1),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(6)))),
-                                )),
+                              controller: _phoneNumberController,
+                              autofocus: true,
+                              onChanged: (text) {
+                                validate(snapshot);
+                              },
+                              style: TextStyle(
+                                  fontSize: 18, color: Colors.black),
+                              decoration: InputDecoration(
+                                  labelText: "Phone",
+                                  enabled: !isenbale,
+                                  errorText: snapshot.hasError
+                                      ? snapshot.error
+                                      : null,
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  prefixIcon: Container(
+                                      width: 50, child: Icon(Icons.phone)),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Color(0xffCED0D2),
+                                          width: 1),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(6)))),
+                            )),
                       ),
                       !otpScreen
                           ? Container(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "*Note: Please provide a valid digit phone number",
-                                style:
-                                    TextStyle(fontSize: 15, color: Colors.red),
-                              ))
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "*Note: Please provide a valid digit phone number",
+                            style:
+                            TextStyle(fontSize: 15, color: Colors.red),
+                          ))
                           : Container(
-                              child: StreamBuilder(
-                                  builder: (context, snapshot) => Column(
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              Expanded(
-                                                child: TextField(
-                                                  controller: _otpController,
-                                                  style: TextStyle(
-                                                      fontSize: 18,
-                                                      color: Colors.black),
-                                                  decoration: InputDecoration(
-                                                      errorText:
-                                                          snapshot.hasError
-                                                              ? snapshot.error
-                                                              : null,
-                                                      labelText: "OTP",
-                                                      filled: true,
-                                                      fillColor: Colors.white,
-                                                      prefixIcon:
-                                                          Icon(Icons.all_out),
-                                                      border: OutlineInputBorder(
-                                                          borderSide: BorderSide(
-                                                              color: Color(
-                                                                  0xffCED0D2),
-                                                              width: 1),
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                  Radius
-                                                                      .circular(
-                                                                          6)))),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              GestureDetector(
-                                                  onTap: _cancel,
-                                                  child: Text(
-                                                    "Cancel",
-                                                    style: TextStyle(
-                                                        fontSize: 22,
-                                                        color: Colors.blue,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontStyle:
-                                                            FontStyle.italic),
-                                                  ))
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Text(
-                                            "* Note: OTP code from service will send for you, please check in your message.",
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.red),
-                                          )
-                                        ],
-                                      )),
-                            )
+                        child: StreamBuilder(
+                            builder: (context, snapshot) => Column(
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: TextField(
+                                        controller: _otpController,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black),
+                                        decoration: InputDecoration(
+                                            errorText:
+                                            snapshot.hasError
+                                                ? snapshot.error
+                                                : null,
+                                            labelText: "OTP",
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            prefixIcon:
+                                            Icon(Icons.all_out),
+                                            border: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Color(
+                                                        0xffCED0D2),
+                                                    width: 1),
+                                                borderRadius:
+                                                BorderRadius.all(
+                                                    Radius
+                                                        .circular(
+                                                        6)))),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    GestureDetector(
+                                        onTap: _cancel,
+                                        child: Text(
+                                          "Cancel",
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              color: Colors.blue,
+                                              fontWeight:
+                                              FontWeight.bold,
+                                              fontStyle:
+                                              FontStyle.italic),
+                                        ))
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "* Note: OTP code from service will send for you, please check in your message.",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.red),
+                                )
+                              ],
+                            )),
+                      )
                     ],
                   ),
                 ),
@@ -212,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.blue,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      onPressed: !isValid ? null : _setOtp,
+                      onPressed: !isValid ? _onLogin : _setOtp,
                       child: Text(
                         !isValid ? "ENTER PHONE NUMBER" : "CONTINUE",
                         style: TextStyle(

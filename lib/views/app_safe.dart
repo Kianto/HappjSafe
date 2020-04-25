@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:happjsafe/controllers/user_controller.dart';
+import 'package:happjsafe/models/user.dart';
 import 'package:happjsafe/resources/constant.dart';
 import 'package:happjsafe/views/history.dart';
 import 'package:happjsafe/views/profile.dart';
@@ -26,23 +29,44 @@ class _MainScreenState extends State<MainScreen> {
         title: Text(Constants.appName_SAFE),
       ),
 
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        children: <Widget>[ 
-          UserCodePage(),
-          HistoryPage(),
-          ScannerPage(),
-          NotificationPage(),
-          ProfilePage(),
-        ],
-      ),
+      body: StreamBuilder<DocumentSnapshot>(
+//        stream: UserController.getUserStream("7gU0TRNZGyRIxORoGiz5fNVS5Hx1"),
+        stream: UserController.getUserStream("rqja0ZD4YsXS4b2MHdiRmqIDetH3"),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[CircularProgressIndicator()],
+              )
+            );
+          }
+
+          User loggedUser = User.fromJson(snapshot.data.data);
+          loggedUser.id = snapshot.data.documentID;
+
+          return PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            children: <Widget>[
+              UserCodePage(loggedUser: loggedUser),
+              HistoryPage(loggedUser: loggedUser),
+              ScannerPage(userId: loggedUser.id),
+              NotificationPage(loggedUser: loggedUser),
+              ProfilePage(loggedUser: loggedUser),
+            ],
+          );
+        }
+      ),  
+
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.camera, size: 25),
-        backgroundColor: Colors.black,
+        child: _createIcon(Icons.camera, 2),
+        backgroundColor: Colors.blue,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Row(
@@ -90,7 +114,7 @@ class _MainScreenState extends State<MainScreen> {
 
   IconButton _createIcon(IconData icon, int index) {
     return IconButton(
-      icon: Icon(icon,size: 25.0,),
+      icon: Icon(icon,size: 25.0),
       color: _getBottomIconColor(index),
       onPressed: () => _pageController.jumpToPage(index),
     );
