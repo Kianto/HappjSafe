@@ -11,17 +11,18 @@ class UserCodePage extends StatefulWidget {
   UserCodePage({Key key, @required this.loggedUser}) : super(key: key);
 
   final User loggedUser;
-
+ 
   @override
   State<StatefulWidget> createState() => _UserCodePageState();
 }
 
 class _UserCodePageState extends State<UserCodePage> {
+   bool isDanger =false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Colors.grey[100],
+        color:isDanger?Colors.red: Colors.grey[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
@@ -35,7 +36,7 @@ class _UserCodePageState extends State<UserCodePage> {
                     Text("SCAN HERE",
                       style: TextStyle(
                         fontSize: 20,
-                        color: Color(0xff707070),
+                        color:isDanger?Colors.white : Color(0xff707070),
                         fontWeight: FontWeight.bold)
                     ),
                     Icon(
