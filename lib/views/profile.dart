@@ -8,9 +8,10 @@ import 'package:happjsafe/views/app_safe.dart';
 ///
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key key, @required this.loggedUser}) : super(key: key);
+  ProfilePage({Key key, @required this.loggedUser, this.isTravelApp}) : super(key: key);
 
   final User loggedUser;
+  final bool isTravelApp;
 
   @override
   State<StatefulWidget> createState() => _ProfilePageState();
@@ -21,7 +22,6 @@ class _ProfilePageState extends State<ProfilePage> {
   String statusGood = "SAFE";
   String urlImgSick = "assets/images/sick-face.png";
   String statusSick = "INFECTED";
-  bool isTravel = false;
   Color color = Colors.blue;
   TextEditingController _name = new TextEditingController();
   TextEditingController _phone = new TextEditingController();
@@ -199,14 +199,12 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void _onSwitchInspector() {
-    setState(() {
-      if(isTravel == true) isTravel = false;
-      else isTravel = true;
-    });
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context){
-          return isTravel == false? MainTravelScreen() : MainScreen();
+          return (null != widget.isTravelApp && widget.isTravelApp)
+              ? MainScreen()
+              : MainTravelScreen();
         },
       ),
     );

@@ -62,7 +62,7 @@ class _MainTravelScreenState extends State<MainTravelScreen> {
             children: <Widget>[
               ServiceCodePage(inspector: loggedUser),
               TravelScannerPage(serviceId: loggedUser.inspectingServiceId),
-              ProfilePage(loggedUser: loggedUser),
+              ProfilePage(loggedUser: loggedUser, isTravelApp: true),
             ],
           );
         }

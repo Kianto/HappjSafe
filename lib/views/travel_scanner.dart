@@ -176,7 +176,9 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
     );
   }
 
-  void _continue() {}
+  void _continue() {
+    _scan();
+  }
 
   Future _scan() async {
     String barcode = await scanner.scan();

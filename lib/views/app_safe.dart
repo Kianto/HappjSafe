@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:happjsafe/controllers/user_controller.dart';
 import 'package:happjsafe/models/user.dart';
 import 'package:happjsafe/resources/constant.dart';
+import 'package:happjsafe/views/chat.dart';
 import 'package:happjsafe/views/history.dart';
 import 'package:happjsafe/views/profile.dart';
 import 'package:happjsafe/views/scanner.dart';
@@ -19,14 +20,25 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   PageController _pageController;
   int _page = 0;
+  User loggedUser;
 
   @override
   Widget build(BuildContext context) {
     Widget screen = Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, 
+//        automaticallyImplyLeading: false,
+        leading: Container(),
         centerTitle: true,
         title: Text(Constants.appName_SAFE),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
+            onPressed: _onMessage,
+          )
+        ],
       ),
 
       body: StreamBuilder<DocumentSnapshot>(
@@ -43,7 +55,7 @@ class _MainScreenState extends State<MainScreen> {
             );
           }
 
-          User loggedUser = User.fromJson(snapshot.data.data);
+          loggedUser = User.fromJson(snapshot.data.data);
           loggedUser.id = snapshot.data.documentID;
 
           return PageView(
@@ -64,6 +76,7 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: FloatingActionButton(
         child: _createIcon(Icons.camera, 2),
         backgroundColor: Colors.blue,
+        onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
@@ -124,6 +137,16 @@ class _MainScreenState extends State<MainScreen> {
     return _page == index
         ? Colors.black
         : Theme.of(context).textTheme.caption.color;
+  }
+
+  void _onMessage() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          return CareChatBot(userImage: loggedUser.qrCode,);
+        },
+      ),
+    );
   }
 
 }
