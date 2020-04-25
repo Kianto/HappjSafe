@@ -40,6 +40,7 @@ flutter:
     - assets/images/logo.png
     - assets/images/happy-face.png
     - assets/images/sick-face.png
+    - assets/images/done.gif
 
 
 

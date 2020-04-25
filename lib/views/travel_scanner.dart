@@ -42,26 +42,35 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
           ? Container(
               width: double.infinity,
               height: double.infinity,
-              color: Colors.blue[300],
+              color: Colors.blue,
               child: Column(
                 children: <Widget>[
+                  SizedBox(height: 20),
                   Stack(
                     children: <Widget>[
+                      // Container(
+                      //   alignment: Alignment.bottomCenter,
+                      //   // margin: EdgeInsets.all(10),
+                      //   padding: EdgeInsets.fromLTRB(0, 70, 30, 0),
+                      //   child: Container(
+                      //     width: 200,
+                      //     height: 180,
+                      //     decoration: BoxDecoration(
+                      //         color: Colors.white,
+                      //         borderRadius: BorderRadius.circular(30)),
+                      //   ),
+                      // ),
+                      // Container(
+                      //     alignment: Alignment.topCenter,
+                      //     child: Image.asset("assets/images/like.png")),
                       Container(
-                        alignment: Alignment.bottomCenter,
-                        // margin: EdgeInsets.all(10),
-                        padding: EdgeInsets.fromLTRB(0, 70, 30, 0),
-                        child: Container(
-                          width: 200,
-                          height: 180,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
-                        ),
-                      ),
-                      Container(
-                          alignment: Alignment.topCenter,
-                          child: Image.asset("assets/images/like.png")),
+                          height: 100,
+                          width: 100,
+                          //alignment: Alignment.topCenter,
+                          child: Image.asset(
+                            "assets/images/done.gif",
+                            fit: BoxFit.fill,
+                          )),
                     ],
                   ),
                   SizedBox(
@@ -165,7 +174,7 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),
                       onPressed: _continue,
-                      color: Colors.blue,
+                      color: Colors.blue[600],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
@@ -176,9 +185,7 @@ class _TravelScannerPageState extends State<TravelScannerPage> {
     );
   }
 
-  void _continue() {
-    _scan();
-  }
+  void _continue() => _scan();
 
   Future _scan() async {
     String barcode = await scanner.scan();

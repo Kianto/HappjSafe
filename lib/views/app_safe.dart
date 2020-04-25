@@ -8,6 +8,7 @@ import 'package:happjsafe/views/history.dart';
 import 'package:happjsafe/views/profile.dart';
 import 'package:happjsafe/views/scanner.dart';
 import 'package:happjsafe/views/user_code.dart';
+import 'package:happjsafe/views/user_scanner.dart';
 
 import 'notification.dart';
 
@@ -65,7 +66,7 @@ class _MainScreenState extends State<MainScreen> {
             children: <Widget>[
               UserCodePage(loggedUser: loggedUser),
               HistoryPage(loggedUser: loggedUser),
-              ScannerPage(userId: loggedUser.id),
+              UserScannerPage(userId: loggedUser.id),
               NotificationPage(loggedUser: loggedUser),
               ProfilePage(loggedUser: loggedUser),
             ],
