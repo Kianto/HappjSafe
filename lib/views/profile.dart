@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:happjsafe/models/user.dart';
 import 'package:happjsafe/views/app_travel.dart';
+import 'package:happjsafe/views/app_safe.dart';
 
 ///
 /// Show user info
@@ -20,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String statusGood = "SAFE";
   String urlImgSick = "assets/images/sick-face.png";
   String statusSick = "INFECTED";
+  bool isTravel = false;
   Color color = Colors.blue;
   TextEditingController _name = new TextEditingController();
   TextEditingController _phone = new TextEditingController();
@@ -197,10 +199,14 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void _onSwitchInspector() {
+    setState(() {
+      if(isTravel == true) isTravel = false;
+      else isTravel = true;
+    });
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context){
-          return MainTravelScreen();
+          return isTravel == false? MainTravelScreen() : MainScreen();
         },
       ),
     );

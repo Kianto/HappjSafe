@@ -51,7 +51,7 @@ class _MainTravelScreenState extends State<MainTravelScreen> {
                   )
               );
             }
-
+  
             Inspector loggedUser = Inspector.fromJson(snapshot.data.data);
             loggedUser.id = snapshot.data.documentID;
 

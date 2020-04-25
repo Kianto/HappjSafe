@@ -12,6 +12,10 @@ class UserService {
     });
     print('success');
   }
+  static dynamic get_user_info(userid) async {
+    var snapshot =  await Firestore.instance.collection("user").document(userid).get();
+    return snapshot;
+  }
 }
 
 class ServiceService {
