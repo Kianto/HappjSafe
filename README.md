@@ -9,19 +9,25 @@ Notify if detected cases on the same trip.
 
 ## Screenshots
 
-1. Login Screen
+### Login Screen
 <img height="480px" src="/assets/UI/u1.jpg"> <img height="480px" src="/assets/UI/u2.jpg">
-2. Scan Screen
+
+### Scan Screen
 <img height="480px" src="/assets/UI/u3.jpg">
-3. Journey Screen
+
+### Journey Screen
 <img height="480px" src="/assets/UI/u4.jpg"> <img height="480px" src="/assets/UI/u5.jpg">
-4. News Screen
+
+### News Screen
 <img height="480px" src="/assets/UI/u6.jpg">
-5. Profile Screen (normal and infected state)
+
+### Profile Screen (normal and infected state)
 <img height="480px" src="/assets/UI/u7.jpg"> <img height="480px" src="/assets/UI/u8.jpg">
-6. Service Screen
+
+### Service Screen
 <img height="480px" src="/assets/UI/u9.jpg">
-7. Chatbot Screen
+
+### Chatbot Screen
 <img height="480px" src="/assets/UI/u10.jpg">
 
 ## Members
