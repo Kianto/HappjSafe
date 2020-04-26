@@ -1,0 +1,46 @@
+name: happjsafe
+description: A new Flutter application for HackCovy 2020 contest.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  flutter_launcher_icons: 0.7.4
+  intl: 0.16.1
+  qrscan: 0.2.17
+  firebase_auth:
+  fluttertoast: ^3.1.3
+  cloud_firestore: ^0.12.10
+  qr_flutter:
+  firebase_database:
+  flutter_dialogflow: ^0.1.2
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/favicon.png"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/NewAgent-315.json
+    - assets/images/
+    - assets/images/flash.gif
+    - assets/images/bg.jpg
+    - assets/images/logo.png
+    - assets/images/happy-face.png
+    - assets/images/sick-face.png
+    - assets/images/done.gif
+
+
+
